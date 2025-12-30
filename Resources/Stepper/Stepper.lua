@@ -9,6 +9,8 @@
 	
 	Usage:
 		local Stepper = require(path.to.Stepper)
+
+		-- task.wait(5) -- Simulating delay for Usage 2
 		
 		local myStepper = Stepper.New("MyStepper", "Heartbeat")
 		
