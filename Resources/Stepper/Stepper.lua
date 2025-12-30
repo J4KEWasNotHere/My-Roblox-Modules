@@ -20,7 +20,7 @@
 		
 		task.wait(2)
 		
-		myStepper:Remove("ThisPrinter") -- or Stepper.Remove("MyStepper", "ThisPrinter")
+		myStepper:Remove("ThisPrinter")
 	
 	Usage 2: -- another Script of the same RunContext...
 		local Stepper = require(path.to.Stepper)
