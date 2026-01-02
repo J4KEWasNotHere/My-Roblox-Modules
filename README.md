@@ -12,9 +12,9 @@
 
 | Module | Description |
 |---|-------------|
-| [**📡 RemoteEvent**](https://github.com/J4KEWasNotHere/Modules/tree/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/RemoteEvent/RemoteEvent.lua) | This module manages RemoteEvents, allowing secure communication between server and client while preventing unauthorized access. |
-| [**🔊 SoundManager**](https://github.com/J4KEWasNotHere/Modules/blob/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/SoundManager/SoundManager.lua) | This file implements a Sound Manager that creates and manages sounds, including 3D spatial sounds. It provides methods for playing sounds, applying effects, and creating sound entities. |
-| [**⏱️ Stepper**](https://github.com/J4KEWasNotHere/Modules/blob/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/Stepper/Stepper.lua) | This module centralizes the creation and management of RunService steppers, ensuring only one stepper exists per name and method. It provides a convenient way to manage steppers, aiming to reduce the number of RunService steppers and callbacks. |
+| 📡[**RemoteEvent**](https://github.com/J4KEWasNotHere/Modules/tree/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/RemoteEvent/RemoteEvent.lua) | This module manages RemoteEvents, allowing secure communication between server and client while preventing unauthorized access. |
+| 🔊[**SoundManager**](https://github.com/J4KEWasNotHere/Modules/blob/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/SoundManager/SoundManager.lua) | This file implements a Sound Manager that creates and manages sounds, including 3D spatial sounds. It provides methods for playing sounds, applying effects, and creating sound entities. |
+| ⏱️[**Stepper**](https://github.com/J4KEWasNotHere/Modules/blob/c8553c68acf181920bd7ba63df21e97857d1a05b/Resources/Stepper/Stepper.lua) | This module centralizes the creation and management of RunService steppers, ensuring only one stepper exists per name and method. It provides a convenient way to manage steppers, aiming to reduce the number of RunService steppers and callbacks. |
 
 ---
 
