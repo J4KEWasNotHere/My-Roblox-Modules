@@ -1,7 +1,7 @@
 --[[
 	||	Sound Manager
 	
-	||	Creates and manages sounds, including 3D spatial sounds.
+	||	Creates and manages sounds, including '3D' spatial sounds.
 	||	By: @jakeboygamer64
 	
 	||	Documentation
@@ -25,6 +25,7 @@
 	||		
 	||		- Get(): Sound
 	||		- Destroy()
+	(NOTE: YOU CAN PLAY A SOUND WITH OT WITHOUT THE '3D' EFFECTS WITHOUT USING THE CONSTRUCTOR - READ MORE IN THE MODULE)
 
 	(EDIT: Beta Feature is now Full Release.)
 	WARNING : THIS MAY NOT WORK CORRECTLY AS ATTACHMENTS ARENT PARENTED TO A BASE-PART (BETA FEATURE MUST BE ENABLED);
@@ -55,7 +56,7 @@ type Properties3d = {
 }
 
 type Experimental3dProperties = {
-	Pitch: number?, -- 0.5 to 2-capped
+	Pitch: number?, -- 0.5 to 2 (clamped)
 	Distortion: number?, -- 0 to 1
 	Muffle: number?, -- 0 to 1
 	Reverb: number? -- 0 to 1
