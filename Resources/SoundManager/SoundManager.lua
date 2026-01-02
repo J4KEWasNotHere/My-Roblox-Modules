@@ -111,7 +111,7 @@ local function apply3dSoundEffects(sound: Instance, Pitch: number?, Distortion: 
 	reverb.Density = Reverb and math.lerp(0, 1, Reverb) or 0
 	reverb.Diffusion = Reverb and reverb.Density or 0
 	reverb.DryLevel = -reverb.DecayTime
-	reverb.WetLevel = -8*reverb.Density
+	reverb.WetLevel = Reverb and math.lerp(-80, 10, Reverb) or -80
 	
 	pitchShift.Parent = sound
 	distortion.Parent = sound
