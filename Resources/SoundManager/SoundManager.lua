@@ -16,7 +16,7 @@
 	||			- speedRandomness: Randomize the playback speed between 1 and this number
 	||			- volumeRandomness: Randomize the volume between 1 and this number
 	||			
-	||		- Play3D(parent: Instance?, createClone: boolean?, speedRandomness: number?, volumeRandomness: number?, properties: {[string]: any})
+	||		- Play3d(parent: Instance?, createClone: boolean?, speedRandomness: number?, volumeRandomness: number?, properties: {[string]: any})
 	||			- parent: Parent of the sound instance
 	||			- createClone: Create a clone of the sound instance
 	||			- speedRandomness: Randomize the playback speed between 1 and this number
