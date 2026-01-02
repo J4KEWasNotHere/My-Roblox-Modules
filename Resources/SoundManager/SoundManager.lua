@@ -1,6 +1,3 @@
---!strict
---!optimize 2
-
 --[[
 	||	Sound Manager
 	
@@ -29,6 +26,9 @@
 	||		- Get(): Sound
 	||		- Destroy()
 ]]
+
+--!strict
+--!optimize 2
 
 local SoundModule = {RANDOM = Random.new()}
 SoundModule.__index = SoundModule
