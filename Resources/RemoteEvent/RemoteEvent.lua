@@ -53,6 +53,10 @@ if game:GetService("RunService"):IsServer() == true then
 	local function FireAll(event, ...)
 		event:FireAllClients(...)
 	end
+
+	local function FireServer(event, ...)
+		event:FireAllClients(...)
+	end
 	
 	function constructor.new(name, event, isReliable)
 		local self = remoteEvents[name]
@@ -78,6 +82,10 @@ if game:GetService("RunService"):IsServer() == true then
 	end
 	
 	function remoteEvent:Fire(player, ...)
+		Fire(self.Remote, player, ...)
+	end
+
+	function remoteEvent:FireClient(player, ...)
 		Fire(self.Remote, player, ...)
 	end
 
@@ -126,7 +134,11 @@ else
 	end
 
 	function remoteEvent:FireAll(...)
-		error(`{self.Name}:FireAll() is not available on the client.`)
+		error(`{self.Name}:FireAll() is not available on the client, use {self.Name}:Fire() instead.`)
+	end
+
+	function remoteEvent:FireServer(...)
+		error(`{self.Name}:FireServer() is not available on the client, use {self.Name}:Fire() instead.`)
 	end
 
 	function remoteEvent:Destroy()
