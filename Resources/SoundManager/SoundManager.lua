@@ -41,7 +41,6 @@ local DebrisFolder = workspace:FindFirstChild("Debris") or workspace
 
 --> Types
 type Properties3d = {
-	-- Default
 	RollOffMin: number?,
 	RollOffMax: number?,
 	RollOffMode: Enum.RollOffMode?,
@@ -49,12 +48,6 @@ type Properties3d = {
 	PlaybackSpeed: number?,
 	Volume: number?,
 	Looped: boolean?,
-	
-	-- Experimental
-	Pitch: number?,
-	Distortion: number?,
-	Muffle: number?,
-	Reverb: number?
 }
 
 type Experimental3dProperties = {
