@@ -31,6 +31,8 @@
 			
 ]]
 
+--!optimize 2
+
 local constructor, remoteEvent, remoteEvents = {}, {}, {}
 remoteEvent.__index = remoteEvent
 
@@ -38,12 +40,29 @@ remoteEvent.__index = remoteEvent
 export type Constructor = {
 	new: (name: string, event: (...any) -> ()?, isReliable: boolean?) -> RemoteEvent,
 }
+
 export type RemoteEvent = {
 	Event: (...any) -> ()?,
+	
 	Fire: (self: RemoteEvent, ...any) -> (),
+	
+	FireClient: (self: RemoteEvent, player: Player, ...any) -> (),
+	
+	FireServer: (self: RemoteEvent, ...any) -> (),
 	FireAll: (self: RemoteEvent, ...any) -> (),
+	
 	Destroy: (self: RemoteEvent) -> (),
 }
+
+-- Recursive Fix
+local function FindFirstRemoteEvent(name: string): BaseRemoteEvent?
+	for _, v: Instance in script:GetChildren() do
+		if v.Name == name and v.ClassName == "BaseRemoteEvent" then
+			return v
+		end
+	end
+	return nil
+end
 
 if game:GetService("RunService"):IsServer() == true then
 	local function Fire(event, player, ...)
@@ -65,7 +84,7 @@ if game:GetService("RunService"):IsServer() == true then
 			self.Name = name
 			self.Event = event
 			self.IsReliable = isReliable ~= nil and isReliable or true
-			self.Remote = Instance.new(self.IsReliable and "RemoteEvent" or "UnreliableRemoteEvent")
+			self.Remote = FindFirstRemoteEvent(name) or Instance.new(self.IsReliable and "RemoteEvent" or "UnreliableRemoteEvent")
 			self.Remote.Name = name
 			self.Remote.Parent = script
 			self.Remote.OnServerEvent:Connect(function(player, ...)
