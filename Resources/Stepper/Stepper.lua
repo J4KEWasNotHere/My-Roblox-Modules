@@ -41,7 +41,7 @@
 local RunService = game:GetService("RunService")
 
 --> Modules
-local Types = require(script.Types)
+local Types = require("@self/Types")
 
 --> Variables
 
