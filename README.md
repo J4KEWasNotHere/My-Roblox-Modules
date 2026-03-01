@@ -16,7 +16,7 @@
 | 🔊[**SoundManager**](https://github.com/J4KEWasNotHere/Modules/blob/main/Resources/SoundManager/SoundManager.lua) | This module implements a Sound Manager that creates and manages sounds, including 3D spatial sounds. It provides methods for playing sounds, applying effects, and creating sound entities. |
 | ⏱️[**Stepper**](https://github.com/J4KEWasNotHere/Modules/blob/main/Resources/Stepper/Stepper.lua) | This module centralizes the creation and management of RunService steppers, ensuring only one stepper exists per name and method. It provides a convenient way to manage steppers, aiming to reduce the number of RunService steppers and callbacks. |
 | 🚦[**Debouncer**](https://github.com/J4KEWasNotHere/Modules/blob/main/Resources/Debouncer/Debouncer.lua) | This module implements a Debouncer class for managing event delays and function executions. |
-
+| 🔪[**ImageCutter**](https://github.com/J4KEWasNotHere/My-Roblox-Modules/blob/main/Resources/ImageCutter/ImageCutter.lua) | This module manages large images and cuts it up into a usable form, useful for sprites. |
 ---
 
 <p align="center">
