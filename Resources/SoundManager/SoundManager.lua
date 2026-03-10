@@ -84,7 +84,7 @@ local function _pcall(func: (...any) -> ...any, ...): (boolean, ...any)
 	return pcall(func, ...)
 end
 
-local function applyProperties(instance, properties: {[any]: any} | {} | nil)
+local function applyProperties(instance: Instance, properties: {[any]: any} | {} | nil)
 	if not properties then return end
 	for name, value in properties do
 		local success, result = _pcall(function() 
