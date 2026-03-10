@@ -1,4 +1,5 @@
 --!strict
+--!optimize 2
 
 local module = {}
 local Types = require("@self/Types")
