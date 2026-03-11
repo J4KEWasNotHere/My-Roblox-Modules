@@ -1,8 +1,12 @@
 -- Refrenced off Suphi's Remote Function Module (https://devforum.roblox.com/t/suphis-remotefunction-module/2783829)
+-- NOTE: CREATES INSTANCES IN .script
 
---!optimize 2
+local USE_ENCRYPTION = false -- best if left true for full protection.
+local ENCRYPTION_KEY: string? = nil -- doesnt change much, however, do not use random generators to produce a value.
 
 local constructor, remoteEvent, remoteEvents = {}, {}, {}
+local misc = require("@self/misc")
+
 remoteEvent.__index = remoteEvent
 
 -- Types
@@ -12,26 +16,31 @@ export type Constructor = {
 
 export type RemoteEvent = {
 	Event: (...any) -> ()?,
-	
+
 	Fire: (self: RemoteEvent, ...any) -> (),
-	
+
 	FireClient: (self: RemoteEvent, player: Player, ...any) -> (),
-	
+
 	FireServer: (self: RemoteEvent, ...any) -> (),
 	FireAll: (self: RemoteEvent, ...any) -> (),
-	
+
 	Destroy: (self: RemoteEvent) -> (),
 }
 
--- Recursive Fix
-local function FindFirstRemoteEvent(name: string): BaseRemoteEvent?
+-- Utility
+local function FindFirstRemoteEvent(x: string): BaseRemoteEvent?
 	for _, v: Instance in script:GetChildren() do
-		if v.Name == name and v.ClassName == "BaseRemoteEvent" then
+		local n = misc.ex1(v.Name, ENCRYPTION_KEY)
+		if USE_ENCRYPTION and misc.ex1(v.Name, ENCRYPTION_KEY) == x and v:IsA("BaseRemoteEvent") then
+			return v
+		elseif v:IsA("BaseRemoteEvent") and v.Name == x then
 			return v
 		end
 	end
 	return nil
 end
+
+-- Main
 
 if game:GetService("RunService"):IsServer() == true then
 	local function Fire(event, player, ...)
@@ -45,7 +54,7 @@ if game:GetService("RunService"):IsServer() == true then
 	local function FireServer(event, ...)
 		event:FireAllClients(...)
 	end
-	
+
 	function constructor.new(name, event, isReliable)
 		local self = remoteEvents[name]
 		if self == nil then
@@ -54,7 +63,8 @@ if game:GetService("RunService"):IsServer() == true then
 			self.Event = event
 			self.IsReliable = isReliable ~= nil and isReliable or true
 			self.Remote = FindFirstRemoteEvent(name) or Instance.new(self.IsReliable and "RemoteEvent" or "UnreliableRemoteEvent")
-			self.Remote.Name = name
+			self.Remote.Name = USE_ENCRYPTION and misc.ex0(name, ENCRYPTION_KEY) or name
+			
 			self.Remote.Parent = script
 			self.Remote.OnServerEvent:Connect(function(player, ...)
 				if self.Event ~= nil then
@@ -68,7 +78,7 @@ if game:GetService("RunService"):IsServer() == true then
 			return self
 		end
 	end
-	
+
 	function remoteEvent:Fire(player, ...)
 		Fire(self.Remote, player, ...)
 	end
@@ -96,7 +106,16 @@ else
 			self.Event = event
 			self.IsReliable = isReliable ~= nil and isReliable or true
 			
-			local remote = script:WaitForChild(name)
+			local remote = nil
+			
+			if USE_ENCRYPTION then
+				repeat 
+					remote = FindFirstRemoteEvent(name)
+					task.wait(0.75)
+				until remote ~= nil
+			else
+				remote = script:WaitForChild(name)
+			end
 
 			self.Remote = remote
 			self.Connection = self.Remote.OnClientEvent:Connect(function(...)
