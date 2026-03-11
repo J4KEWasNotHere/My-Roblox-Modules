@@ -198,7 +198,7 @@ Cancels all debounces and clears the debouncer instance.
 <details>
 <summary><h2>📡 RemoteEvent</h2></summary>
 
-A module that keeps track of RemoteEvents and fires them to the server or client. Created to prevent hackers from easily accessing RemoteEvents by centralizing them.
+A module that keeps track of RemoteEvents and fires them to the server or client. Created to prevent hackers from easily accessing RemoteEvents by centralizing them <b>- supports naming encryption.</b>
 
 You can get direct access to the [**File(s) Here**](https://github.com/J4KEWasNotHere/My-Roblox-Modules/blob/main/Resources/RemoteEvent/RemoteEvent.lua).
 
@@ -269,6 +269,14 @@ This method exists for API completeness but should use `:Fire()` on the client.
 
 #### `RemoteEvent:Destroy() -> ()`
 Destroys the RemoteEvent and disconnects all connections.
+
+### 🪪 Encryption
+
+#### `USE_ENCRYPTION: boolean`
+Disable or Enable naming encryption.
+
+#### `ENCRYPTION_KEY: string?`
+Unique idenifier to correctly decrypt encrypted strings. Do not use random generators as the values they produce will be different across scripts.
 
 </details>
 
