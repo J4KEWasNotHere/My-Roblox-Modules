@@ -7,8 +7,8 @@
 
 ---
 
-<h2>⚙️ Features To Add</h2>
-- Encryption to RemoteEvent Naming..
+<h2>⚙️ Features/Changes To Add</h2>
+No more to add!
 
 ---
 
