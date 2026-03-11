@@ -7,8 +7,13 @@
 
 ---
 
-<b><h2>Resource Hierarchy</h2></b>
+<h2>⚙️ Features To Add</h2>
+- Encryption to RemoteEvent Naming..
 
+---
+
+<b><h2>Resource Hierarchy</h2></b>
+- Add 
 
 | Module | Description |
 |---|-------------|
