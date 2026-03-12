@@ -8,12 +8,11 @@
 ---
 
 <h2>⚙️ Features/Changes To Add</h2>
-No more to add!
+Nothing here yet..
 
 ---
 
 <b><h2>Resource Hierarchy</h2></b>
-- Add 
 
 | Module | Description |
 |---|-------------|
