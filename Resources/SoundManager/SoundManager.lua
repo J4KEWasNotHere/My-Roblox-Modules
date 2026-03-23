@@ -131,6 +131,7 @@ local function createPositionalEntity(position: Vector3, parent: Instance?, name
 end
 
 --> Module
+
 function SoundModule.get(soundId: string, properties:{[string]: any}?)
 	local Properties = properties or {}
 	Properties.SoundId = soundId
